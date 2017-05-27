@@ -3,25 +3,19 @@ var fs = require('fs');
 var path = require('path');
 
 var Users = require('../controllers/users_controller');
-
+var Buckets = require('../controllers/buckets_controller');
+var Items = require('../controllers/items_controller');
 
 module.exports = function(app) {
-    app.get('/users', function(req, res) {
-        Users.index(req, res);
-    });
-    app.get('/users/:id', function(req, res) {
-        Users.show(req, res);
-    });
-    app.post('/users', function(req, res) {
-        Users.create(req, res);
-    });
-    app.put('/users/:id', function(req, res) {
-        Users.update(req, res);
-    });
-    app.delete('/users/:id', function(req, res) {
-        Users.delete(req, res);
-    });
-    app.post('/sessions', function(req, res){
-        Users.login(req, res);
-    });
+    app.get('/users', Users.index);
+    app.get('/users/:id', Users.show);
+    app.post('/users', Users.create);
+    app.post('/sessions', Users.login);
+
+    app.get('/buckets', Buckets.index);
+    app.get('/buckets/:id', Buckets.show);
+    app.post('/buckets', Buckets.create);
+
+    app.get('/items', Items.index);
+    app.post('/items', Items.create);
 }

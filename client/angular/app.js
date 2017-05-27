@@ -10,5 +10,13 @@ app.config(function($routeProvider){
         templateUrl: 'partials/home.html',
         controller: 'UsersController as UC'
     })
+    .when('/bucket/:id', {
+        templateUrl: 'partials/bucket.html',
+        controller: 'UsersController as UC'
+    })
+    .when('/:id/bucket', {
+        templateUrl: 'partials/user_bucket.html',
+        controller: 'UsersController as UC'
+    })
     .otherwise({ redirectTo: '/' });
 })

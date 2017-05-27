@@ -1,0 +1,16 @@
+<div ng-init='UC.session()'>
+    <h1>{{UC.current_user.first_name}}'s Bucket!</h1>
+    <div ng-controller='BucketsController as BC'>
+        <form ng-submit='BC.createItem(BC.newItem, bucket._id)'>
+            Title:
+            <input type="text" ng-model='BC.newItem.title'>
+            Description:
+            <input type="text" ng-model='BC.newItem.description'>
+            <input type="submit" value="Add Item">
+        </form>
+
+        <div ng-init='UC.getUsers()'>
+            <p ng-repeat='user in UC.users'>{{ user.first_name }} {{ user.last_name }} <a href="#!/{{user._id}}/bucket"><button>Go to Bucket</button></a></p>
+        </div>
+    </div>
+</div>

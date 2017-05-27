@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 module.exports = {
   index: function(req,res){
-      console.log("index");
+    //   console.log("index");
     User.find({}).exec(function (err, users) {
         if(err){
             return res.json(err)

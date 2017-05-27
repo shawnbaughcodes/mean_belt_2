@@ -25,7 +25,15 @@ var UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'Must enter a Password']
-    }
+    },
+    buckets: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bucket'
+    }],
+    items: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Item'
+    }]
 })
 
 UserSchema.methods.hashPassword = function (password) {

@@ -4,7 +4,7 @@ var path = require('path');
 
 console.log('connecting to database...')
 
-mongoose.connect('mongodb://localhost/login_and_registration')
+mongoose.connect('mongodb://localhost/mean_belt_2')
 
 var models_path = path.join(__dirname, './../models');
 
